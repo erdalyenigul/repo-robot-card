@@ -131,7 +131,7 @@ function shareCard(qParam) {
 
       <div class="flex w-full flex-wrap">
         <button @click="generateLink()"
-          class="w-full rounded-b-lg bg-blue-500 py-3 px-6 text-xs font-bold text-white">GENERATE LINK</button>
+          class="btn w-full rounded-b-lg ">GENERATE LINK</button>
       </div>
 
       <div v-if="isVisibleLink" class="flex w-full flex-wrap mt-5">
@@ -139,7 +139,7 @@ function shareCard(qParam) {
           {{ `${envLink}share?username=${qParam.username}&repo=${qParam.repo}&avatar=${selectedAvatar}&color=${pureColor.split('#')[1]}` }}
         </div>
         <button @click="shareCard(qParam)"
-          class="w-[100px] rounded-r-lg bg-blue-500 py-3 px-6 text-xs font-bold text-white"><i class="fa-solid fa-arrow-up-right-from-square"></i> OPEN</button>
+          class="btn w-[100px] rounded-r-lg"><i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> OPEN</button>
       </div>
 
       <div v-if="linkErrorMsg" class="flex w-full items-center justify-center mt-5 mb-3 text-red-700">
