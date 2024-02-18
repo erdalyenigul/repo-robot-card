@@ -109,9 +109,9 @@ function shareCard(qParam) {
         </div>
       </div>
 
-      <div class="flex w-full items-center justify-between mb-5">
-        <div class="flex text-[16px]">Select Template Color</div>
-        <div class="flex w-[220px] items-center border-2 rounded-2xl h-[40px] overflow-hidden">
+      <div class="flex w-full items-center flex-wrap justify-between mb-5">
+        <div class="flex text-[16px] w-full md:w-auto mb-2 md:mb-0">Select Template Color</div>
+        <div class="flex w-full items-center border-2 rounded-2xl h-[40px] overflow-hidden md:w-[220px]">
           <input type="color" v-model="pureColor" id="colorPicker">
           <div class="ml-2 px-2 py-1">{{ pureColor }}</div>
         </div>

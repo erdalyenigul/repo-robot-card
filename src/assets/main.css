@@ -43,3 +43,7 @@ body{background-color:#333;}
 }
 
 .validateError{border:1px solid #ff0000}
+
+@media (max-width:767px) {
+  #colorPicker{width:200px;}
+}
