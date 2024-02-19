@@ -158,10 +158,10 @@ function shareTwitter() {
     </div>
 
     <div class="flex max-w-[500px] flex-wrap items-center justify-between mb-5">
-      <button @click="shareTwitter()" class="btn rounded-lg w-full md:w-auto mb-3 md:mb-0">
+      <button @click="shareTwitter()" class="btn rounded-lg w-full md:w-auto m-2">
         <i class="fa-brands fa-square-x-twitter text-[18px] mr-2"></i> Tweet
       </button>
-      <button @click="router.push('/')" class="btn rounded-lg w-full md:w-auto">
+      <button @click="router.push('/')" class="btn rounded-lg w-full md:w-auto m-2">
         <i class="fa-solid fa-link text-[18px] mr-2"></i> GENERATE YOUR CARD
       </button>
     </div>
