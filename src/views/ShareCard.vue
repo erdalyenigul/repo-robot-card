@@ -147,7 +147,7 @@ function shareTwitter() {
           <div class="grid gap-4 grid-cols-2 w-full">
             <div class="flex bg-white shadow-md rounded-md p-3 justify-center md:justify-start md:flex-row flex-wrap" v-for="item in topContributors">
               <img @click="externalLink(item.htmlUrl)" :src="item.avatar" :alt="item.name" class="rounded-full w-[40px] h-[40px] cursor-pointer">
-              <div class="flex items-center flex-col md:w-[calc(100%-40px)] w-auto pl-0 md:pl-3">
+              <div class="flex items-center flex-col md:w-[calc(100%-40px)] w-full pl-0 md:pl-3">
                 <a @click="externalLink(item.htmlUrl)" class="w-full text-[14px] text-gray-800 font-bold cursor-pointer justify-center md:justify-start flex">{{ item.name }}</a>
                 <div class="w-full text-[14px] text-gray-400 justify-center md:justify-start flex">{{ item.commits }} commits</div>
               </div>
