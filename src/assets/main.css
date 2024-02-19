@@ -46,4 +46,5 @@ body{background-color:#333;}
 
 @media (max-width:767px) {
   #colorPicker{width:200px;}
+  #app{padding:10px;}
 }

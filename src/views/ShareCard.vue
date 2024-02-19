@@ -104,7 +104,7 @@ function shareTwitter() {
 
 <template>
   <div class="flex w-full items-center justify-center flex-col">
-    <div class="relative flex w-[500px] flex-col rounded-xl overflow-hidden bg-gray-200  text-gray-700 shadow-lg mb-5">
+    <div class="relative flex max-w-[500px] flex-col rounded-xl overflow-hidden bg-gray-200  text-gray-700 shadow-lg mb-5">
       <div class="mb-3 flex justify-between p-2 relative h-[80px]" :style="{ backgroundColor: `#${cardColor}` }">
         <div class="flex items-end absolute bottom-[-15px] left-[15px]">
           <div class="w-[80px] mr-2 rounded-md overflow-hidden shadow-md bg-white">
@@ -132,10 +132,10 @@ function shareTwitter() {
 
       <div class="flex flex-col flex-wrap w-full p-4">
 
-        <div class="flex w-full bg-white py-2 px-3 rounded-md mb-5 shadow-md">
+        <div class="flex w-full bg-white py-2 px-3 rounded-md mb-5 shadow-md md:flex-row flex-col">
           <a @click="externalLink(repoDetail.html_url)" class="cursor-pointer font-medium flex items-center">{{ repoDetail.name }}</a>
-          <span class="font-light flex items-center ">
-            <i class="fa-solid fa-circle text-[4px] px-2"></i> {{ repoDetail.description }}
+          <span class="font-light flex items-center pl-0 md:pl-2">
+            {{ repoDetail.description }}
           </span>
         </div>
 
@@ -157,7 +157,7 @@ function shareTwitter() {
       </div>
     </div>
 
-    <div class="flex w-[500px] flex-wrap items-center justify-between mb-5">
+    <div class="flex max-w-[500px] flex-wrap items-center justify-between mb-5">
       <button @click="shareTwitter()" class="btn rounded-lg w-full md:w-auto mb-3 md:mb-0">
         <i class="fa-brands fa-square-x-twitter text-[18px] mr-2"></i> Tweet
       </button>
