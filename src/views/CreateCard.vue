@@ -3,6 +3,7 @@ import { reactive, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useGithubStore } from '@/stores/github'
 import { useRouter } from "vue-router"
+import Loader from '../components/Loader.vue'
 
 const router = useRouter()
 const { getRepoDetail } = storeToRefs(useGithubStore())
@@ -10,6 +11,7 @@ const store = useGithubStore()
 const pureColor = ref('#3b82f6');
 const selectedAvatar = ref('');
 const setActive = ref(null);
+const isLoading = ref(false);
 const linkErrorMsg = ref('');
 const envLink = ref('');
 const isVisibleLink = ref(false);
@@ -26,6 +28,7 @@ const githubInfo = reactive({
 })
 
 async function generateLink() {
+  isLoading.value = true
   if (generateLinkBtnCheck()) {
     isVisibleLink.value = false
     linkErrorMsg.value = ''
@@ -34,12 +37,15 @@ async function generateLink() {
       qParam.username = getRepoDetail.value.owner.login
       qParam.repo = getRepoDetail.value.name
       isVisibleLink.value = true
+      isLoading.value = false
     } catch(err) {
       isVisibleLink.value = false
-      linkErrorMsg.value = err.message
+      linkErrorMsg.value = err.response.data.message
+      isLoading.value = false
       return
     }
   } else {
+    isLoading.value = false
     isVisibleLink.value = false
     linkErrorMsg.value = 'Required fields are missing'
   }
@@ -68,7 +74,6 @@ function generateLinkBtnCheck() {
 function getSelectedAvatar(item, index) {
   setActive.value = index
   selectedAvatar.value = item
-  console.log(selectedAvatar.value)
 }
 
 function shareCard(qParam) { 
@@ -118,7 +123,7 @@ function shareCard(qParam) {
       </div>
 
       <div class="flex w-full flex-wrap">
-        <div class="flex w-full text-[16px] mb-3">Select Avatar</div>
+        <div class="flex w-full text-[16px] mb-3">Select Your Robot</div>
         <div class="flex w-full flex-wrap rounded-t-lg" :class="{ 'validateError' : error.avatar }">
           <a @click="getSelectedAvatar(item, index)"
             :style="setActive == index ? { backgroundColor : pureColor } : ''"
@@ -130,8 +135,9 @@ function shareCard(qParam) {
       </div>
 
       <div class="flex w-full flex-wrap">
-        <button @click="generateLink()"
-          class="btn w-full rounded-b-lg ">GENERATE LINK</button>
+        <Loader v-if="isLoading" class="w-full" />
+        <button v-else @click="generateLink()"
+          class="btn w-full rounded-b-lg">GENERATE LINK</button>
       </div>
 
       <div v-if="isVisibleLink" class="flex w-full flex-wrap mt-5">

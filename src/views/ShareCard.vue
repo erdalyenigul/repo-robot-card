@@ -104,7 +104,7 @@ function shareTwitter() {
 
 <template>
   <div class="flex w-full items-center justify-center flex-col">
-    <div class="relative flex max-w-[500px] flex-col rounded-xl overflow-hidden bg-gray-200  text-gray-700 shadow-lg mb-5">
+    <div class="relative flex w-[500px] flex-col rounded-xl overflow-hidden bg-gray-200  text-gray-700 shadow-lg mb-5">
       <div class="mb-3 flex justify-between p-2 relative h-[80px]" :style="{ backgroundColor: `#${cardColor}` }">
         <div class="flex items-end absolute bottom-[-15px] left-[15px]">
           <div class="w-[80px] mr-2 rounded-md overflow-hidden shadow-md bg-white">
@@ -157,7 +157,7 @@ function shareTwitter() {
       </div>
     </div>
 
-    <div class="flex max-w-[500px] w-full flex-wrap items-center justify-between mb-5">
+    <div class="flex w-[500px] flex-wrap items-center justify-between mb-5">
       <button @click="shareTwitter()" class="btn rounded-lg w-full md:w-auto mb-3 md:mb-0">
         <i class="fa-brands fa-square-x-twitter text-[18px] mr-2"></i> Tweet
       </button>
