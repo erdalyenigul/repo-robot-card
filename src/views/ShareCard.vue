@@ -91,10 +91,6 @@ onMounted(async () => {
   await getContributors()
 })
 
-function externalLink(url) {
-  window.open(url, '_blank', 'noreferrer')
-}
-
 function shareTwitter() {
     const url = window.location.href;
     window.open(`https://twitter.com/intent/tweet?text=${repoDetail.value.name} - ${repoDetail.value.description}&url=${encodeURIComponent(url)}`);
